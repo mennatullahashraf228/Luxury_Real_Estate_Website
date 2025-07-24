@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Properties Page</title>
+    <link rel="stylesheet" href="./properties.css">
+    <link rel="stylesheet" href="./bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <style>
+        .navbar-brand {
+            color: rgb(31, 159, 84) !important;
+            font-weight: bold;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        .navbar-nav a {
+            text-decoration: none;
+            color: #ffffff;
+            padding: 7px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+        }
+
+        .navbar-nav a:hover {
+            text-decoration: underline;
+            text-underline-offset: 8px;
+            transition: all 0.3s;
+            color: rgb(31, 159, 84) !important;
+
+        }
+        #nn {
+            width: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .navbar-nav {
+            align-items: center;
+        }
+        .swiper {
+            padding: 30px;
+        }
+
+        .swiper-slide {
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer {
+            background-color: #313439;
+            color: white;
+            padding: 40px 20px;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .footer-section {
+            flex: 1 1 200px;
+            margin: 20px;
+        }
+
+        .footer-section h3,
+        .footer-section h4 {
+            margin-bottom: 15px;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            margin: 5px 0;
+            display: block;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover,
+        .footer-section p:hover,
+        .footer-section i:hover,
+        .footer-bottom span:hover {
+            color: rgb(14, 136, 20);
+        }
+
+        .social-icons a {
+            margin-right: 10px;
+            font-size: 18px;
+            display: inline-block;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            border-top: 1px solid #444;
+            padding-top: 15px;
+            font-size: 14px;
+        }
+
+        .footer-bottom span {
+            color: white;
+            transition: color 0.3s;
+        }
+
+        .first {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            background-color: rgb(27, 138, 73);
+            margin-top: 20px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: white;
+            width: 100%;
+            padding: 20px;
+        }
+
+        form {
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px;
+            background-color: rgba(187, 237, 208, 0.479);
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        form select,
+        form input[type="search"] {
+            width: 200px;
+            border: 1.5px solid rgba(173, 230, 215, 0.612);
+            height: 40px;
+            padding: 10px;
+        }
+
+        .img {
+            width: 100%;
+            height: 300px;
+        }
+
+        .buttons {
+            display: flex;
+        }
+        .swiper {
+            width: 80%;
+            /* height: 300px; */
+            display: flex;
+
+        }
+
+        .swiper-slide {
+            /* background: #eee; */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            padding: 10px;
+            height: auto;
+        }
+
+        .swiper-slide img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .property-card {
+            /* width: 100%; */
+            height: auto;
+            background: #fff;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease;
+        }
+
+        .property-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .property-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .property-info {
+            padding: 15px;
+            overflow: visible;
+        }
+
+        .tags {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .tags .type,
+        .tags .status {
+            background: rgb(31, 159, 84);
+            color: #ffffff;
+            padding: 3px 8px;
+            font-size: 12px;
+            border-radius: 5px;
+            text-transform: capitalize;
+        }
+
+        .property-info h2 {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+
+        .property-info h3 {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 10px;
+        }
+
+        .details {
+            display: flex;
+            gap: 10px;
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            color: rgb(31, 159, 84);
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .property-info button {
+            background-color: rgb(31, 159, 84) !important;
+            color: white !important;
+            display: block !important;
+            margin-top: 10px;
+            border-radius: 10px;
+            padding: 10px !important;
+            border: none;
+            width: 100%;
+        }
+
+
+        .property-info button:hover {
+            transform: scale(0.9);
+            transition: all 1s;
+        }
+        #fav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .fav_btn {
+            color: rgb(228, 12, 12);
+            background-color: #f5ecec;
+            padding: 10px;
+            border-radius: 20px;
+        }
+
+        .fav_btn:hover {
+            transform: scale(0.9);
+        }
+
+        .faved {
+            color: #f5ecec;
+            background-color: rgb(228, 12, 12);
+            padding: 10px;
+            border-radius: 20px;
+        }
+
+        .faved:hover {
+            transform: scale(0.9);
+        }
+
+        #nn {
+            width: 30px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#" style="color: rgb(27, 138, 73) !important; margin-left: 40px;"><i
+                    class="fa-solid fa-house" style="color: rgb(27, 138, 73) !important;"></i> Luxury Estate</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup" dir="rtl">
+                <div class="navbar-nav">
+                    <a class="8nav-link active" id="nn"
+                        style="background-color: #ff0000; height: 25px; padding: 3px;border-radius: 5px;"></a>
+
+                    <a class="nav-link active" aria-current="page" href="#"><i class="fa-solid fa-heart"
+                            style="color: #ff0000;"></i></a>
+                    <a class="nav-link active" href="contactUs.html">contact</a>
+                    <a class="nav-link active" href="fav.html">Favourite</a>
+                    <a class="nav-link active" href="prop.html"> properties</a>
+                    <a class="nav-link active" href="index.html">Home</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    </nav>
+
+    <div class="first">
+        <h1>Our Properties</h1>
+        <p>Discover our exclusive collection of premium properties</p>
+    </div>
+
+    <form>
+        <div>
+            <p>Search</p>
+            <input type="search" placeholder="Search properties...">
+        </div>
+        <div>
+            <p>Property Type</p>
+            <select id="prop">
+                <option value="all">All Properties</option>
+                <option value="penthouse">Penthouse</option>
+                <option value="villa">Villa</option>
+                <option value="apartment">Apartment</option>
+                <option value="townhouse">Townhouse</option>
+            </select>
+        </div>
+        <div>
+            <p>Min Price</p>
+            <select id="minprice">
+                <option value="0">Min Price</option>
+                <option value="850000">850000</option>
+                <option value="1200000">1200000</option>
+                <option value="2500000">2500000</option>
+            </select>
+        </div>
+        <div>
+            <p>Max Price</p>
+            <select id="maxprice">
+                <option value="9999999">Max Price</option>
+                <option value="2500000">2500000</option>
+                <option value="3200000">3200000</option>
+                <option value="4500000">4500000</option>
+            </select>
+        </div>
+        <div>
+            <p>Sort By</p>
+            <select id="sort">
+                <option value="newest">Newest</option>
+                <option value="oldest">Oldest</option>
+            </select>
+        </div>
+        <button type="submit" style="width: 150px; height: 50px; margin-top: 40px; border-radius: 6px ; border: none; background-color: green;">go</button>
+    </form>
+
+    <div class="swiper mySwiper" id="p">
+        <div class="swiper-wrapper" id="swiperWrapper"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+          <div class="footer-section">
+            <h3>Luxury Estates</h3>
+            <p>Your trusted partner in finding the perfect home. We specialize in luxury real estate and exceptional
+              service.</p>
+            <div class="social-icons">
+              <a href="#"><i class="fa-brands fa-facebook"></i></a>
+              <a href="#"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#"><i class="fa-brands fa-twitter"></i></i></a>
+              <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+          </div>
+    
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Properties</a></li>
+              <li><a href="#">Favorites</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+    
+          <div class="footer-section">
+            <h4>Property Types</h4>
+            <ul>
+              <li><a href="#">Apartments</a></li>
+              <li><a href="#">Villas</a></li>
+              <li><a href="#">Duplex</a></li>
+              <li><a href="#">Penthouse</a></li>
+            </ul>
+          </div>
+    
+          <div class="footer-section">
+            <h4>Contact Information</h4>
+            <p><i class="fa fa-map-marker"></i> 123 Luxury Street, City, Country</p>
+            <p><i class="fa fa-phone"></i> +1 234 567 8900</p>
+            <p><i class="fa fa-envelope"></i> info@luxuryestates.com</p>
+          </div>
+        </div>
+    
+        <hr />
+    
+        <div class="footer-bottom">
+          <p>© 2024 Luxury Estates. جميع الحقوق محفوظة.</p>
+          <p>Designed with <span><i class="fa-solid fa-heart" style="color: #ff0000;"></i></a></span> for you</p>
+        </div>
+      </footer>
+    
+   
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@next/dist/aos.js"></script>
+    <script src="bootstrap.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        AOS.init();
+        const favcards = JSON.parse(localStorage.getItem("loved")) || [];
+        const x = document.getElementById("nn");
+        x.innerHTML = `${favcards.length}`;
+        let myArray = [...favcards];
+        let allProducts = [];
+    
+        let propSelect = document.getElementById("prop");
+        let minPriceSelect = document.getElementById("minprice");
+        let maxPriceSelect = document.getElementById("maxprice");
+        let sortSelect = document.getElementById("sort");
+        const wrapper = document.getElementById("swiperWrapper");
+    
+        fetch("https://edu-me01.github.io/Json-Data/properties.json")
+            .then(res => res.json())
+            .then(neww => {
+                allProducts = neww.properties;
+                setupEventListeners();
+                filterAndRender(); // أول ما الصفحة تفتح
+            });
+    
+        function setupEventListeners() {
+            propSelect.addEventListener("change", filterAndRender);
+            minPriceSelect.addEventListener("change", filterAndRender);
+            maxPriceSelect.addEventListener("change", filterAndRender);
+            sortSelect.addEventListener("change", filterAndRender);
+        }
+    
+        function filterAndRender() {
+            let type = propSelect.value;
+            let min = parseInt(minPriceSelect.value);
+            let max = parseInt(maxPriceSelect.value);
+            let sort = sortSelect.value;
+    
+            let filtered = [...allProducts];
+    
+            // فلترة حسب النوع
+            if (type !== "all") {
+                filtered = filtered.filter(item => item.type.toLowerCase() === type.toLowerCase());
+            }
+    
+            // فلترة حسب السعر
+            filtered = filtered.filter(item => item.price >= min && item.price <= max);
+    
+            // ترتيب
+            if (sort === "newest") {
+                filtered.sort((a, b) => b.id - a.id);
+            } else if (sort === "oldest") {
+                filtered.sort((a, b) => a.id - b.id);
+            }
+    
+            renderProperties(filtered);
+        }
+    
+        function renderProperties(data) {
+            wrapper.innerHTML = ""; // امسح القديم
+    
+            data.forEach(item => {
+                const slide = document.createElement("div");
+                slide.className = "swiper-slide";
+                const isFaved = myArray.some(p => p.id === item.id);
+                const favClass = isFaved ? "faved" : "fav_btn";
+    
+                slide.innerHTML = `
+                    <div class="property-card">
+                        <img src="${item.images[0]}" alt="${item.title}" />
+                        <div class="property-info">
+                            <div class="tags">
+                                <span class="type">${item.type}</span>
+                                <span class="status">${item.status}</span>
+                            </div>
+                            <h2>${item.title}</h2>
+                            <h3><i class="fa-solid fa-location-dot"></i> ${item.location}</h3>
+                            <div class="details">
+                                <span><i class="fa-solid fa-bed"></i> ${item.bedrooms} Beds</span>
+                                <span><i class="fa-solid fa-bath"></i> ${item.bathrooms} Baths</span>
+                                <span><i class="fa-solid fa-ruler-combined"></i> ${item.squareFeet} sq ft</span>
+                            </div>
+                            <div id='fav'>
+                                <h1 class="price">$${item.price}</h1>
+                                <i class="fa-regular fa-heart ${favClass}" onclick="loved(this,${item.id})"></i>
+                            </div>
+                            <button onclick="ViewDetails(${item.id})">View Details</button>
+                        </div>
+                    </div>
+                `;
+                wrapper.appendChild(slide);
+            });
+    
+            const swiper = new Swiper(".mySwiper", {
+                slidesPerView: 3,
+                spaceBetween: 20,
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+            });
+            swiper.update();
+        }
+    
+        function loved(btn, id) {
+            const favItem = allProducts.find(p => p.id === id);
+            const existIndex = myArray.findIndex(p => p.id === id);
+    
+            if (existIndex === -1) {
+                myArray.push(favItem);
+                btn.classList.remove("fav_btn");
+                btn.classList.add("faved");
+                Swal.fire("Added to favorites!", "", "success");
+            } else {
+                myArray.splice(existIndex, 1);
+                btn.classList.remove("faved");
+                btn.classList.add("fav_btn");
+                Swal.fire("Removed from favorites!", "", "warning");
+            }
+    
+            localStorage.setItem("loved", JSON.stringify(myArray));
+            document.getElementById("nn").innerHTML = `${myArray.length}`;
+        }
+    
+        function ViewDetails(Id) {
+            localStorage.setItem("viewDetails", Id);
+            window.location.href = "details.html";
+        }
+    </script>
+    
+</body>
+
+</html>

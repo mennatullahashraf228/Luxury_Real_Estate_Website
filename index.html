@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <link href="https://cdn.jsdelivr.net/npm/aos@next/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            border: none;
+        }
+
+        body {
+            background-color: #e4ffeacf;
+        }
+
+        .navbar-brand {
+            color: rgb(31, 159, 84) !important;
+            font-weight: bold;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        .navbar-nav a {
+            /* text-decoration: underline; */
+            padding: 7px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+        }
+
+        .navbar-nav a:hover {
+            text-decoration: underline;
+            text-underline-offset: 8px;
+            transition: all 0.3s;
+            color: rgb(31, 159, 84) !important;
+
+        }
+
+        .container-fluid {
+            display: flex !important;
+            justify-content: space-between !important;
+        }
+
+        #searchDiv {
+            width: 52%;
+            padding: 200px 70px;
+            color: #ffffff;
+
+        }
+
+        #searchDiv h1 {
+            font-size: 60px;
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: bold;
+        }
+
+        #searchDiv p {
+            font-size: 22px;
+        }
+
+        #backk {
+            background: linear-gradient(rgba(19, 12, 12, 0.515), rgba(23, 18, 18, 0.537)), url(background.png) center/cover no-repeat;
+            height: 700px;
+        }
+
+        .input-group {
+            width: 50%;
+        }
+
+        .swiper {
+            width: 80%;
+            /* height: 300px; */
+            display: flex;
+
+        }
+
+        .swiper-slide {
+            /* background: #eee; */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            padding: 10px;
+            height: auto;
+        }
+
+        .swiper-slide img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .property-card {
+            /* width: 100%; */
+            height: auto;
+            background: #fff;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease;
+        }
+
+        .property-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .property-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .property-info {
+            padding: 15px;
+            overflow: visible;
+        }
+
+        .tags {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .tags .type,
+        .tags .status {
+            background: rgb(31, 159, 84);
+            color: #ffffff;
+            padding: 3px 8px;
+            font-size: 12px;
+            border-radius: 5px;
+            text-transform: capitalize;
+        }
+
+        .property-info h2 {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+
+        .property-info h3 {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 10px;
+        }
+
+        .details {
+            display: flex;
+            gap: 10px;
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            color: rgb(31, 159, 84);
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .property-info button {
+            background-color: rgb(31, 159, 84) !important;
+            color: white !important;
+            display: block !important;
+            margin-top: 10px;
+            border-radius: 10px;
+            padding: 10px !important;
+            border: none;
+            width: 100%;
+        }
+
+
+        .property-info button:hover {
+            transform: scale(0.9);
+            transition: all 1s;
+        }
+
+        #featuredP {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            padding: 0 30px;
+
+        }
+
+        #featured h1 {
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: bold;
+        }
+
+        #featured {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px;
+        }
+
+        #fav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .fav_btn {
+            color: rgb(228, 12, 12);
+            background-color: #f5ecec;
+            padding: 10px;
+            border-radius: 20px;
+        }
+
+        .fav_btn:hover {
+            transform: scale(0.9);
+        }
+
+        .faved {
+            color: #f5ecec;
+            background-color: rgb(228, 12, 12);
+            padding: 10px;
+            border-radius: 20px;
+        }
+
+        .faved:hover {
+            transform: scale(0.9);
+        }
+
+        #nn {
+            width: 30px;
+            text-align: center;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+
+        #numss {
+            background-color: #fff;
+            height: 200px;
+            display: flex;
+            gap: 40px;
+            justify-content: space-around;
+            align-items: center;
+            padding: 30px;
+        }
+
+        .nums {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .nums i {
+            font-size: 30px;
+            color: rgb(31, 159, 84);
+        }
+
+        .nums h2 {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-weight: bold;
+        }
+
+        #p {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            padding: 0 200px;
+        }
+
+        .footer {
+            background-color: #313439;
+            color: white;
+            padding: 40px 20px;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .footer-section {
+            flex: 1 1 200px;
+            margin: 20px;
+        }
+
+        .footer-section h3,
+        .footer-section h4 {
+            margin-bottom: 15px;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            margin: 5px 0;
+            display: block;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover,
+        .footer-section p:hover,
+        .footer-section i:hover,
+        .footer-bottom span:hover {
+            color: rgb(14, 136, 20);
+        }
+
+        .social-icons a {
+            margin-right: 10px;
+            font-size: 18px;
+            display: inline-block;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            border-top: 1px solid #444;
+            padding-top: 15px;
+            font-size: 14px;
+        }
+
+        .footer-bottom span {
+            color: white;
+            transition: color 0.3s;
+        }
+        #nn {
+            width: 30px;
+            text-align: center;
+        }
+        .navbar-nav {
+    align-items: center;
+        }
+    </style>
+</head>
+<header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#" style="color: rgb(27, 138, 73) !important; margin-left: 40px;"><i
+                    class="fa-solid fa-house" style="color: rgb(27, 138, 73) !important;"></i> Luxury Estate</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup" dir="rtl">
+                <div class="navbar-nav">
+                    <a class="8nav-link active" id="nn"
+                        style="background-color: #ff0000; height: 25px; padding: 3px;border-radius: 5px;"></a>
+
+                    <a class="nav-link active" aria-current="page" href="#"><i class="fa-solid fa-heart"
+                            style="color: #ff0000;"></i></a>
+                    <a class="nav-link active" href="contactUs.html">contact</a>
+                    <a class="nav-link" href="fav.html">Favourite</a>
+                    <a class="nav-link" href="prop.html"> properties</a>
+                    <a class="nav-link active" href="index.html">Home</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<body>
+    <div id="backk">
+        <div id="searchDiv">
+            <h1>Find Your Dream Home</h1>
+            <p>Discover exclusive properties in the most desirable locations. From luxury apartments to stunning villas,
+                we have the perpect home for you.</p>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Search..." aria-label="Search">
+                <button class="btn btn-success" type="button">Search</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="featuredP"   data-aos="fade-zoom-in"
+     data-aos-easing="ease-in-back"
+     data-aos-delay="300"
+     data-aos-offset="0">
+        <div id="featured"  data-aos="fade-up">
+            <h1>Featured Properties</h1>
+            <p>Explore our handpicked selection of premium properties</p>
+        </div>
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper" id="swiperWrapper">
+
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+
+
+    <div id="numss">
+        <div class="nums">
+            <i class="fa-solid fa-house"></i>
+            <h2>48+</h2>
+            <p>Properties Sold</p>
+        </div>
+        <div class="nums">
+            <i class="fa-solid fa-users"></i>
+            <h2>96+</h2>
+            <p>Happy Clients</p>
+        </div>
+        <div class="nums">
+            <i class="fa-solid fa-award"></i>
+            <h2>1+</h2>
+            <p>Years Experience</p>
+        </div>
+        <div class="nums">
+            <i class="fa-solid fa-star"></i>
+            <h2>48+</h2>
+            <p>Client Rating</p>
+        </div>
+    </div>
+
+    <div   data-aos="fade-zoom-in"
+     data-aos-easing="ease-in-back"
+     data-aos-delay="300"
+     data-aos-offset="0">
+        <div id="featured"  data-aos="fade-up">
+            <h1>Recent Properities</h1>
+            <p>Latest additiomns to our property portfolio</p>
+        </div>
+        <div id="p"></div>
+
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Luxury Estates</h3>
+                <p>Your trusted partner in finding the perfect home. We specialize in luxury real estate and exceptional
+                    service.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Properties</a></li>
+                    <li><a href="#">Favorites</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Property Types</h4>
+                <ul>
+                    <li><a href="#">Apartments</a></li>
+                    <li><a href="#">Villas</a></li>
+                    <li><a href="#">Duplex</a></li>
+                    <li><a href="#">Penthouse</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contact Information</h4>
+                <p><i class="fa fa-map-marker"></i> 123 Luxury Street, City, Country</p>
+                <p><i class="fa fa-phone"></i> +1 234 567 8900</p>
+                <p><i class="fa fa-envelope"></i> info@luxuryestates.com</p>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="footer-bottom">
+            <p>© 2024 Luxury Estates. جميع الحقوق محفوظة.</p>
+            <p>Designed with <span><i class="fa-solid fa-heart" style="color: #ff0000;"></i></a></span> for you</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/aos@next/dist/aos.js"></script>
+    <script src="bootstrap.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+
+         AOS.init();
+        // const container = document.getElementById("favcards");
+        let favcards = JSON.parse(localStorage.getItem("loved")) || [];
+        // console.log(favcards);
+
+        var x = document.getElementById("nn");
+        x.innerHTML = `${favcards.length}`
+        let allProducts = [];
+        let myArray = JSON.parse(localStorage.getItem("loved")) || [];
+        fetch("https://edu-me01.github.io/Json-Data/properties.json")
+            .then(res => res.json())
+            .then(data => {
+                // data=dataset
+                allProducts = data.properties; // 🟢 هنا الحل
+                const wrapper = document.getElementById("swiperWrapper");
+
+                data.properties.forEach(item => {
+                    const slide = document.createElement("div");
+                    slide.className = "swiper-slide";
+                    const isFaved = myArray.some(p => p.id === item.id);
+                    const favClass = isFaved ? "faved" : "fav_btn";
+
+                    slide.innerHTML = `
+                        <div class="property-card">
+                            <img src="${item.images[0]}" alt="${item.title}" />
+                            <div class="property-info">
+                                <div class="tags">
+                                    <span class="type">${item.type}</span>
+                                    <span class="status">${item.status}</span>
+                                </div>
+                                <h2>${item.title}</h2>
+                                <h3><i class="fa-solid fa-location-dot"></i> ${item.location}</h3>
+                                <div class="details">
+                                    <span><i class="fa-solid fa-bed"></i> ${item.bedrooms} Beds</span>
+                                    <span><i class="fa-solid fa-bath"></i> ${item.bathrooms} Baths</span>
+                                    <span><i class="fa-solid fa-ruler-combined"></i> ${item.squareFeet} sq ft</span>
+                                </div>
+                                <div id='fav'><h1 class="price">$${item.price}</h1><i class="fa-regular fa-heart ${favClass}" onclick="loved(this,${item.id})"></i></div>
+
+                                <button onclick="ViewDetails(${item.id})">View Details</button>
+                            </div>
+                        </div>
+            `;
+                    wrapper.appendChild(slide);
+                });
+                const parant = document.getElementById("p");
+
+                allProducts.slice(0, 5).forEach(item => {
+                    const card = document.createElement("div");
+                    card.classList.add("property-card");
+                    const isFaved = myArray.some(p => p.id === item.id);
+                    const favClass = isFaved ? "faved" : "fav_btn";
+
+                    card.innerHTML = `
+        <img src="${item.images[0]}" alt="${item.title}" />
+        <div class="property-info">
+            <div class="tags">
+                <span class="type">${item.type}</span>
+                <span class="status">${item.status}</span>
+            </div>
+            <h2>${item.title}</h2>
+            <h3><i class="fa-solid fa-location-dot"></i> ${item.location}</h3>
+            <div class="details">
+                <span><i class="fa-solid fa-bed"></i> ${item.bedrooms} Beds</span>
+                <span><i class="fa-solid fa-bath"></i> ${item.bathrooms} Baths</span>
+                <span><i class="fa-solid fa-ruler-combined"></i> ${item.squareFeet} sq ft</span>
+            </div>
+            <div id='fav'>
+                <h1 class="price">$${item.price}</h1>
+                <i class="fa-regular fa-heart ${favClass}" onclick="loved(this,${item.id})"></i>
+            </div>
+            <button onclick="ViewDetails(${item.id})">View Details</button>
+        </div>
+    `;
+                    parant.appendChild(card);
+                });
+
+                const swiper = new Swiper(".mySwiper", {
+                    slidesPerView: 3,
+                    spaceBetween: 20,
+                    pagination: {
+                        el: ".swiper-pagination",
+                        clickable: true,
+                    },
+                });
+                swiper.update();
+
+
+            });
+
+        function loved(btn, id) {
+            const favItem = allProducts.find(p => p.id === id);
+
+            if (!favItem) {
+                Swal.fire({
+                    title: "Item not found!",
+                    icon: "error"
+                });
+                return;
+            }
+
+            const existIndex = myArray.findIndex(p => p.id === id);
+
+            if (existIndex === -1) {
+
+                myArray.push(favItem);
+                localStorage.setItem("loved", JSON.stringify(myArray));
+
+                Swal.fire({
+                    title: "Added to favorites!",
+                    icon: "success"
+                });
+                btn.classList.remove("fav_btn");
+                btn.classList.add("faved")
+            } else {
+                // موجود، نحذفه
+                myArray.splice(existIndex, 1);
+                localStorage.setItem("loved", JSON.stringify(myArray));
+
+                Swal.fire({
+                    title: "Removed from favorites!",
+                    icon: "warning"
+                });
+                btn.classList.remove("faved")
+                btn.classList.add("fav_btn");
+            }
+        }
+        
+
+        function ViewDetails(Id) {
+            localStorage.setItem("viewDetails", Id);
+            window.location.href = "details.html"; //
+        }
+    </script>
+</body>
+
+</html>

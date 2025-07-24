@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navbar LTR</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+
+    <style>
+        #navbarSupportedContent {
+            direction: ltr !important;
+            text-align: left !important;
+        }
+
+        .container-fluid {
+            width: 100%;
+            /* font-weight: bold;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+        }
+        .navbar-brand {
+            color: rgb(31, 159, 84) !important;
+            font-weight: bold;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        .navbar-nav a {
+            /* text-decoration: underline; */
+            padding: 7px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+        }
+
+        nav {
+            width: 100%;
+        }
+
+        .first {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            background-color: rgb(27, 138, 73);
+            padding-top: 20px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: white;
+            width: 100%;
+        }
+
+        button {
+            transition: .5s;
+        }
+
+        button:hover {
+            transform: scale(.9);
+        }
+
+        .detail {
+            display: flex;
+            justify-content: space-between;
+            width: 65%;
+            background-color: rgba(187, 237, 208, 0.479);
+            padding: 20px 70px;
+
+            border-radius: 6px;
+            margin: 30px;
+        }
+
+        .details span {
+            background-color: rgba(187, 237, 208, 0.479);
+            padding: 5px;
+            border-radius: 10px;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .vew {
+            display: flex;
+            gap: 20px;
+            transition: .5s;
+        }
+
+        .vew:hover {
+            transform: scale(1.2);
+        }
+
+        .vew i {
+            font-size: 30px;
+        }
+
+
+
+
+        body {
+
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .theheading {
+            text-align: center;
+            margin-top: 20px;
+            color: rgb(14, 136, 20);
+        }
+
+        .theheading h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .theheading p {
+            font-size: 18px;
+        }
+
+
+        #favcards {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 10px 10px 25px rgb(102, 102, 102);
+            padding: 10px;
+            margin: 20px auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            width: 90%;
+            min-height: 400px;
+            text-align: center;
+        }
+
+        #favcards p {
+            text-align: center;
+            font-size: 15px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .card {
+            width: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+            padding: 15px;
+            box-shadow: 1px 2px 10px grey;
+            transition: all 0.5s;
+            background-color: white;
+            margin: 15px;
+            text-align: left;
+
+
+        }
+
+        .property-card {
+            text-align: left;
+
+        }
+
+        .card:hover {
+            transform: scale(1.2);
+            box-shadow: 1px 2px 20px rgb(12, 145, 87);
+        }
+
+        .card img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .card h6 {
+            text-align: left;
+            margin: 15px 0;
+            color: #666363;
+        }
+
+        .card h3 {
+            margin: 10px 0;
+        }
+
+        .view {
+            margin-top: 10px;
+            width: 40%;
+            padding: 8px 0;
+            border-radius: 6px;
+            background-color: green;
+            color: white;
+            text-align: center;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            transition: .5s;
+
+
+        }
+
+        .navbar-nav{
+            align-items: center;
+        }
+        .call {
+            width: 40%;
+        }
+
+        .headicon {
+            margin-top: 0;
+            text-align: center;
+            font-size: 24px;
+        }
+
+
+        .empty {
+            font-size: 20px;
+            text-align: center;
+        }
+
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+
+
+        .topbutton {
+            text-align: right;
+            margin: px;
+        }
+
+        .clear-button {
+            width: 90%;
+            max-width: 1200px;
+            display: flex;
+            justify-content: flex-end;
+            margin: 20px auto 0 auto;
+        }
+
+
+        .text-center p {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .footer {
+            background-color: #313439;
+            color: white;
+            padding: 40px 20px;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .footer-section {
+            flex: 1 1 200px;
+            margin: 20px;
+        }
+
+        .footer-section h3,
+        .footer-section h4 {
+            margin-bottom: 15px;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            margin: 5px 0;
+            display: block;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover,
+        .footer-section p:hover,
+        .footer-section i:hover,
+        .footer-bottom span:hover {
+            color: rgb(14, 136, 20);
+        }
+
+        .social-icons a {
+            margin-right: 10px;
+            font-size: 18px;
+            display: inline-block;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            border-top: 1px solid #444;
+            padding-top: 15px;
+            font-size: 14px;
+        }
+
+        .footer-bottom span {
+            color: white;
+            transition: color 0.3s;
+        }
+
+        .navbar-nav a:hover {
+            text-decoration: underline;
+            text-underline-offset: 8px;
+            transition: all 0.3s;
+            color: rgb(31, 159, 84) !important;
+
+        }
+
+        .call {
+            background-color: white;
+            border: none;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #nn {
+            width: 30px;
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#" style="color: rgb(27, 138, 73) !important; margin-left: 40px;"><i
+                    class="fa-solid fa-house" style="color: rgb(27, 138, 73) !important;"></i> Luxury Estate</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup" dir="rtl">
+                <div class="navbar-nav">
+                    <a class="8nav-link active" id="nn"style="background-color: #ff0000; height: 25px; padding: 3px;border-radius: 5px;"></a>
+                    <a class="nav-link active" aria-current="page" href="#"><i class="fa-solid fa-heart"style="color: #ff0000;"></i></a>
+                    <a class="nav-link active" href="contactUs.html">contact</a>
+                    <a class="nav-link" href="fav.html" >Favourite</a>
+                    <a class="nav-link" href="prop.html"> properties</a>
+                    <a class="nav-link active" href="index.html">Home</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="first">
+        <h1>My Favourite properties</h1>
+        <p>Brouse the properties you've saved to your Favourite list</p>
+    </div>
+    <div class="detail">
+        <div class="vew">
+            <div><i class="fa-solid fa-heart" style="color: rgb(27, 138, 73) !important;"></i></div>
+            <div>
+                <p class="num"></p>
+                <p>total Favourites</p>
+            </div>
+
+        </div>
+        <div class="vew">
+            <div class="num"><i class="fa-solid fa-eye" style="color: rgb(27, 138, 73) !important;"></i></div>
+            <div>
+                <p>3</p>
+                <p>propireties view</p>
+            </div>
+
+        </div>
+        <div class="vew">
+            <div class="num"><i class="fa-solid fa-share-nodes" style="color: rgb(27, 138, 73) !important;"></i></div>
+            <div>
+                <p>0</p>
+                <p>propireties shared</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="favcards">
+        <p><i class="fa-solid fa-heart"></i>Saved Favorites</p>
+
+    </div>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Luxury Estates</h3>
+                <p>Your trusted partner in finding the perfect home. We specialize in luxury real estate and exceptional
+                    service.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Properties</a></li>
+                    <li><a href="#">Favorites</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Property Types</h4>
+                <ul>
+                    <li><a href="#">Apartments</a></li>
+                    <li><a href="#">Villas</a></li>
+                    <li><a href="#">Duplex</a></li>
+                    <li><a href="#">Penthouse</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contact Information</h4>
+                <p><i class="fa fa-map-marker"></i> 123 Luxury Street, City, Country</p>
+                <p><i class="fa fa-phone"></i> +1 234 567 8900</p>
+                <p><i class="fa fa-envelope"></i> info@luxuryestates.com</p>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="footer-bottom">
+            <p>© 2024 Luxury Estates. جميع الحقوق محفوظة.</p>
+            <p>Designed with <span><i class="fa-solid fa-heart" style="color: #ff0000;"></i></a></span> for you</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+
+        const container = document.getElementById("favcards");
+        let favcards = JSON.parse(localStorage.getItem("loved")) || [];
+        console.log(favcards);
+
+        var x = document.getElementById("nn");
+        x.innerHTML = `${favcards.length}`
+        var y = document.getElementsByClassName("num")[0];
+        y.innerHTML = `${favcards.length}`
+        function trips() {
+            container.innerHTML = "";
+            container.classList.add("container");
+            if (favcards.length === 0) {
+                container.innerHTML = `
+    
+        <div class="topbutton text-end w-100 px-4 mt-4">
+             
+            <a href="#" class="btn btn-primary" style="background-color: rgb(27, 138, 73) !important;">
+                <i class="fa-solid fa-plus me-2"></i> Add sample items
+            </a>
+        </div>
+        <div class="theheading">
+        <h1>my favorites properities <i class="fa-solid fa-heart"></i></h1>
+        <p>view your saved favorite properties</p>
+    </div>
+       
+
+        <div class="d-flex align-items-center justify-content-center" style="min-height: 60vh; width: 100%;">
+            <div class="text-center" style="max-width: 500px;">
+                <h4 class="mb-3">
+                    <i class="fa-solid fa-heart-crack"></i> No Favorites Yet
+                </h4>
+                <p class="mb-4 fs-5 text-secondary">
+                    Start exploring propirties and add them to your favorites to see them here.
+                </p>
+                <a href="#" class="btn btn-primary px-4 py-2 rounded"  style="background-color: rgb(27, 138, 73) !important;">
+                    <i class="fa-solid fa-magnifying-glass-location me-2"></i> Explore propirties
+                </a>
+            </div>
+        </div>
+    `;
+                return;
+            }
+
+
+
+
+
+
+
+            container.innerHTML = `
+           <div class="w-100 text-end me-3 mb-3">
+    <button class="btn2" style="color: green; border: none; background-color: white;">   <i class="fa-solid fa-share-nodes" style="color: rgb(27, 138, 73) !important;"></i> share favorites</button>
+      
+<button class="btn" onclick="clearAll()" style="color: green;">
+            <i class="fa-solid fa-trash "></i> Clear All
+        </button>
+  
+</div>
+
+
+        `;
+
+
+
+
+
+            favcards.forEach((item, index) => {
+                const div = document.createElement("div");
+                div.classList.add("card");
+                div.innerHTML = `
+                        <div class="property-card">
+                            <img src="${item.images[0]}" alt="${item.title}" />
+                            <div class="property-info">
+                                <div class="tags">
+                                    <span class="type">${item.type}</span>
+                                    <span class="status">${item.status}</span>
+                                </div>
+                                <h3>${item.title}</h3>
+                                <h6><i class="fa-solid fa-location-dot"></i> ${item.location}</h6>
+                                <div class="details">
+                                    <span><i class="fa-solid fa-bed"></i> ${item.bedrooms} Beds</span>
+                                    <span><i class="fa-solid fa-bath"></i> ${item.bathrooms} Baths</span>
+                                    <span><i class="fa-solid fa-ruler-combined"></i> ${item.squareFeet} sq ft</span>
+                                </div>
+
+                               
+
+                               <div id='fav'><h3 class="price">$${item.price}</h3> </div>
+
+<div class="buttons">
+                                <button class="view" onclick="ViewDetails(${item.id})">View Details</button>
+        <button class="call" style="color: green;"> <i class="fa fa-phone"></i></button>
+</div>
+<h6><i class="fa-solid fa-calendar"> </i>  added from one day ago</h6>
+
+                            </div>
+                        </div>`;
+                container.appendChild(div);
+            });
+        }
+
+
+
+        function viewItem(id) {
+            const selectedItem = favcards.find(p => p.id === id);
+            if (selectedItem) {
+                localStorage.setItem("view", JSON.stringify(selectedItem));
+                window.location.href = "$";
+            }
+        }
+        function ViewDetails(Id) {
+            localStorage.setItem("viewDetails", Id);
+            window.location.href = "details.html"; //
+        }
+
+        function removeFromCart(index) {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "This item will be removed from your favorites.",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Yes, remove it!',
+                cancelButtonText: 'Cancel'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    favcards.splice(index, 1);
+                    localStorage.setItem("loved", JSON.stringify(favcards));
+                    trips();
+                    Swal.fire({
+                        title: "Deleted!",
+                        text: "The item has been removed.",
+                        icon: "success",
+                        timer: 1500,
+                        showConfirmButton: false
+                    });
+                }
+            });
+        }
+
+        function clearAll() {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "All favorites will be deleted!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Yes, delete all!',
+                cancelButtonText: 'Cancel'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    localStorage.removeItem("loved");
+                    favcards = [];
+                    trips();
+                    Swal.fire({
+                        title: 'Deleted!',
+                        text: 'All favorites have been removed.',
+                        icon: 'success',
+                        timer: 1500,
+                        showConfirmButton: false
+                    });
+                }
+            });
+        }
+
+        trips();
+    </script>
+</body>
+
+</html>
